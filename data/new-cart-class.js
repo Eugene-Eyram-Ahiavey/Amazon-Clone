@@ -1,6 +1,6 @@
 
  class Cart{
-#localStorageKey;  //making localStorageKey private(meaning can only be accessed inside the class, rather being accessed outside by doing cart.localStorageKey)
+#localStorageKey;  //making localStorageKey private(meaning can only be accessed inside the class, rather than being accessed outside by doing cart.localStorageKey)
   cartItems;
 
   constructor(localStorageKey){
@@ -81,7 +81,7 @@ updateQuantity(productId, newQuantity){
 this.cartItems.forEach((cartItem) => {
   if(productId === cartItem.productId){
     if(newQuantity <= 0){
-      removeFromCart(productId)
+      this.removeFromCart(productId)
     }else{
       cartItem.quantity = newQuantity;
     }

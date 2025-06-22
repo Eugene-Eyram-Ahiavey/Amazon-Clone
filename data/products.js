@@ -151,6 +151,7 @@ extraInfoHTML(){
 }
 }
 
+ 
 
 
 export const products = [

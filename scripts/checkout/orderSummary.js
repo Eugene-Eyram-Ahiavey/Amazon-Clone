@@ -198,6 +198,7 @@ const updatedValue = cart.updateQuantity(productId, value);
 
 if(updatedValue === 0){
 cartContainer.remove();
+renderCheckoutHeader();
 }
 
 document.querySelector(`.js-quantity-label-${productId}`).innerHTML = ` ${updatedValue}`;
@@ -221,8 +222,8 @@ renderOrderSummary();
 renderPaymentOrderSummary();
 });
 });
-
 }
+
 
 
 

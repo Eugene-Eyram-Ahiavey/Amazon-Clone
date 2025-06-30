@@ -71,27 +71,30 @@ const paymentSummaryHTML =  `
 `;
 document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 
-document.querySelector('.js-place-order').addEventListener('click', async () => {
+const placeOrder = document.querySelector('.js-place-order');
+placeOrder.addEventListener('click', async () => {
   try {
-     const response =  await fetch('https://supersimplebackend.dev/orders', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      cart: cart
-    })
-  })
+ const response =  await fetch('https://supersimplebackend.dev/orders', {
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        cart: cart
+      }),
+});
 
- const order = await response.json();
- addOrder(order);
+const order = await response.json();
+console.log(order);
+addOrder(order);
 
   } catch (error) {
-    console.log('Unexpected error: Try again Later'); 
+    console.log('Unexpected error. Try again later');
   }
 
-  window.location.href = "orders.html";
 
+  // window.location.href = 'orders.html';
 });
 
 }
+
